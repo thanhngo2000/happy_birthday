@@ -42,14 +42,14 @@ function createHeartParticles(x, y) {
 }
 
 function createFirework() {
-  if (Math.random() < 0.5) {
-    createHeartParticles(random(100, canvas.width - 100), random(100, canvas.height / 2));
-    return;
-  }
-
   const x = random(100, canvas.width - 100);
   const y = random(100, canvas.height / 2);
   const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff', '#ffffff'];
+
+  if (Math.random() < 0.5) {
+    createHeartParticles(x, y);
+    return;
+  }
 
   for (let i = 0; i < 50; i++) {
     particles.push({
@@ -100,7 +100,6 @@ startButton.addEventListener('click', () => {
   animate();
 });
 
-// Ảnh hai bên
 const leftSide = document.querySelector('.left-side');
 const rightSide = document.querySelector('.right-side');
 
@@ -116,7 +115,7 @@ let currentIndex = 0;
 let isShowing = false;
 
 function showSideImages() {
-  if (isShowing) return; // Tránh hiển thị đè lên nhau
+  if (isShowing) return;
 
   isShowing = true;
 
@@ -129,22 +128,18 @@ function showSideImages() {
   leftSide.style.opacity = 1;
   rightSide.style.opacity = 1;
 
-  // Giữ hình trong 4 giây rồi ẩn dần
   setTimeout(() => {
     leftSide.style.opacity = 0;
     rightSide.style.opacity = 0;
 
-    // Chờ thêm 2 giây sau khi ẩn xong mới cho hiện ảnh mới
     setTimeout(() => {
       currentIndex = (currentIndex + 2) % sideImages.length;
       isShowing = false;
-    }, 2000); // Trùng với transition opacity (2s)
-  }, 4000); // Thời gian hình hiển thị trước khi bắt đầu ẩn
+    }, 2000);
+  }, 4000);
 }
-// Gọi mỗi 6 giây thay vì 3s
-setInterval(showSideImages, 4000);
+setInterval(showSideImages, 6000);
 
-// Phát nhạc khi click bất kỳ đâu nếu chưa phát
 window.addEventListener("click", () => {
   audio.muted = false;
   if (audio.paused) audio.play().catch(() => {});
