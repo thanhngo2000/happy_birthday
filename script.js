@@ -2,6 +2,7 @@ const canvas = document.getElementById('fireworks');
 const ctx = canvas.getContext('2d');
 const audio = document.getElementById('birthdaySong');
 const startButton = document.getElementById('startButton');
+const birthdayImage = document.getElementById('birthdayImage');
 
 function resizeCanvas() {
   canvas.width = window.innerWidth;
@@ -100,10 +101,9 @@ startButton.addEventListener('click', () => {
   animate();
 });
 
-const leftSide = document.querySelector('.left-side');
-const rightSide = document.querySelector('.right-side');
-
-const sideImages = [
+// 🎞️ Logic thay đổi ảnh ở trung tâm
+const centerImages = [
+  'images/person.jpg',
   'images/side1.jpg',
   'images/side2.jpg',
   'images/side3.jpg',
@@ -111,35 +111,21 @@ const sideImages = [
   'images/side5.jpg'
 ];
 
-let currentIndex = 0;
-let isShowing = false;
+let currentCenter = 0;
 
-function showSideImages() {
-  if (isShowing) return;
-
-  isShowing = true;
-
-  const imgLeft = sideImages[currentIndex % sideImages.length];
-  const imgRight = sideImages[(currentIndex + 1) % sideImages.length];
-
-  leftSide.style.backgroundImage = `url(${imgLeft})`;
-  rightSide.style.backgroundImage = `url(${imgRight})`;
-
-  leftSide.style.opacity = 1;
-  rightSide.style.opacity = 1;
+function switchCenterImage() {
+  birthdayImage.style.opacity = 0;
 
   setTimeout(() => {
-    leftSide.style.opacity = 0;
-    rightSide.style.opacity = 0;
-
-    setTimeout(() => {
-      currentIndex = (currentIndex + 2) % sideImages.length;
-      isShowing = false;
-    }, 2000);
-  }, 4000);
+    currentCenter = (currentCenter + 1) % centerImages.length;
+    birthdayImage.src = centerImages[currentCenter];
+    birthdayImage.style.opacity = 0.95;
+  }, 1000);
 }
-setInterval(showSideImages, 6000);
 
+setInterval(switchCenterImage, 5000); // đổi ảnh mỗi 5 giây
+
+// Cho phép phát âm thanh khi người dùng click bất kỳ
 window.addEventListener("click", () => {
   audio.muted = false;
   if (audio.paused) audio.play().catch(() => {});

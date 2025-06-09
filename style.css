@@ -48,8 +48,8 @@ html, body {
   border-radius: 16px;
   box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
   opacity: 0.95;
+  transition: opacity 1s ease-in-out;
 }
-
 
 canvas {
   position: fixed;
@@ -75,26 +75,4 @@ canvas {
   cursor: pointer;
   z-index: 20;
   box-shadow: 0 0 20px #ffcc00;
-}
-
-.side-image {
-  position: absolute;
-  top: 20%;
-  width: clamp(80px, 20vw, 200px);
-  height: clamp(160px, 60vh, 400px);
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  border-radius: 12px;
-  box-shadow: 0 0 25px rgba(255,255,255,0.5);
-  transition: opacity 2s ease-in-out;
-  z-index: 5;
-}
-
-.left-side {
-  left: 2%;
-}
-
-.right-side {
-  right: 2%;
 }
