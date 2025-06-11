@@ -27,7 +27,7 @@ html, body {
 
 .photo-container {
   position: absolute;
-  top: 18%;
+  top: 30%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 9;
@@ -75,4 +75,197 @@ canvas {
   cursor: pointer;
   z-index: 20;
   box-shadow: 0 0 20px #ffcc00;
+}
+.hidden-message {
+  position: absolute;
+  top: 12%;
+  width: 100%;
+  text-align: center;
+  font-size: clamp(20px, 4vw, 36px);
+  color: #00ffcc;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 10;
+  font-style: italic;
+  text-shadow: 2px 2px 4px #000;
+}
+
+.hidden-message.show {
+  opacity: 1;
+}
+#customWish {
+  position: absolute;
+  top: 18%; /* Dịch xuống thêm so với trước */
+  width: 100%;
+  text-align: center;
+  font-size: clamp(18px, 3.5vw, 28px);
+  color: #ff99cc;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px #000;
+}
+#customWish2 {
+  position: absolute;
+  top: 18%; 
+  width: 100%;
+  text-align: center;
+  font-size: clamp(18px, 3.5vw, 26px);
+  color: #ffd700;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px #000;
+}
+
+#customWish3 {
+  position: absolute;
+  top: 18%; /* cùng hàng với lời chúc đầu */
+  width: 100%;
+  text-align: center;
+  font-size: clamp(20px, 3vw, 28px);
+  color: #ff69b4;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px #000;
+  z-index: 11;
+
+  opacity: 0;
+  transform: scale(0.5); /* bắt đầu nhỏ */
+  transition: transform 5s ease-out, opacity 0.5s ease-in-out;
+}
+
+#wish-sequence-container {
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  text-align: center;
+  z-index: 12;
+}
+
+.wish-part {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease;
+  font-size: clamp(20px, 3vw, 26px);
+  color: #ffcc00;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px #000;
+  margin-bottom: 10px;
+}
+.wish-part.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+#birthday-wish-container {
+  position: absolute;
+  top: 18%;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+}
+
+.wish-line {
+  font-size: clamp(22px, 4vw, 32px);
+  font-weight: bold;
+  color: #ffcc00;
+  text-shadow: 2px 2px 4px #000;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+#delayed-wish-container {
+  position: absolute;
+  top: 18%; /* Điều chỉnh vị trí dưới phần chúc chính */
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+}
+
+#delayed-line {
+  font-size: clamp(20px, 3vw, 30px);
+  font-weight: 500;
+  color: #ffffff;
+  text-shadow: 1px 1px 3px #000;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+@keyframes textGradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+#wish-anh-thanh-container {
+  position: absolute;
+  top: 18%;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+}
+
+#wish-anh-thanh-line {
+  font-family: 'Segoe UI', 'Verdana', 'Arial', sans-serif; /* Font dễ đọc */
+  font-size: clamp(20px, 2.5vw, 32px); /* Giảm cỡ chữ để đồng bộ với các câu chúc khác */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  /* Gradient chữ */
+  background: linear-gradient(270deg, #ff6ec4, #7873f5, #4ade80, #facc15);
+  background-size: 800% 800%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textGradientFlow 5s ease infinite;
+
+  /* Đổ bóng rực rỡ */
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.8),
+               0 0 12px rgba(255, 0, 255, 0.6),
+               0 0 16px rgba(0, 128, 255, 0.6);
+
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 1s ease, transform 0.6s ease;
+}
+
+@keyframes rainbowGlow {
+  0% {
+    text-shadow: 0 0 5px #ff00cc, 0 0 10px #ff00cc, 0 0 15px #ffcc00;
+  }
+  50% {
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #33ff00, 0 0 30px #ff00cc;
+  }
+  100% {
+    text-shadow: 0 0 5px #ff00cc, 0 0 10px #ff00cc, 0 0 15px #ffcc00;
+  }
+}
+
+#wish-toan-fixed-container {
+  position: absolute;
+  top: 18%;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+}
+
+#wish-toan-fixed-line {
+  font-size: clamp(20px, 3vw, 32px);
+  font-weight: 700;
+  background: linear-gradient(90deg, #ff5e62, #ff9966, #faff00, #4ade80, #38bdf8);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbowGlow 2s ease-in-out infinite;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 1s ease, transform 0.6s ease;
+}
+
+.hidden {
+  display: none;
 }

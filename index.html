@@ -8,7 +8,38 @@
 </head>
 <body>
 
-  <div id="birthdayText">🎉 Chúc mừng sinh nhật! 🎂</div>
+  <div id="birthdayText">🎉 Chúc mừng sinh nhật Mỹ Anh! 🎂</div>
+  
+  <div id="customWish" style="display: none;">Anh Tuấn: chúc mừng sinh nhật tuổi mới thêm mới thêm dui thêm xuôi thêm ngược, nhiều tiền</div>
+  
+  <div id="customWish3" style="display: none;">
+    Tiên: Cmsn (Tình nghĩa chị em bao năm mà chỉ viết được 4 chữ)
+  </div>
+
+  <div id="customWish2" style="display: none;">
+    Nam: chúc chị Bông sinh nhật vui vẻ và hạnh phúc, thêm tuổi mới ngày càng sinh đẹp và vô tri hơn
+  </div>
+
+  <div id="birthday-wish-container">
+    <div class="wish-line" id="wish-line">Hiền: 🎉🎂 CHÚC MỪNG SINH NHẬT BÉ BÔNG SIÊU QUẬY! 🎂🎉</div>
+  </div>
+
+  <div id="delayed-wish-container">
+    <div class="wish-line" id="delayed-line"> <!-- Chữ sẽ thay đổi tại đây --> </div>
+  </div>
+
+  <div id="wish-anh-thanh-container">
+    <div class="wish-line" id="wish-anh-thanh-line"></div>
+  </div>
+
+  <div id="wish-toan-fixed-container">
+    <div id="wish-toan-fixed-line" class="hidden">
+      Toán Yết Kiêu<br>
+      Chúc đứa em ruột thừa xém út một ngày sinh nhật thật vui vẻ nha 🎉
+    </div>
+  </div>
+  
+
 
   <div class="photo-container">
     <img id="birthdayImage" src="images/person.jpg" alt="Hình chúc mừng sinh nhật">
@@ -26,3 +57,10 @@
   <script src="script.js"></script>
 </body>
 </html>
+
+<script>
+  setTimeout(() => {
+    const line = document.getElementById("wish-toan-fixed-line");
+    line.classList.remove("hidden");
+  }, 145000); // Hiển thị sau 145 giây
+</script>
