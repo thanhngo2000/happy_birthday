@@ -205,6 +205,28 @@ setTimeout(() => {
   }, 5000); // biến mất sau 5 giây animation
 }, 25000); 
 
+const customWish4 = document.getElementById('customWish4');
+
+// Sau 20 giây
+setTimeout(() => {
+  customWish4.style.display = 'block';
+
+  // Bắt đầu trigger animation (scale up và opacity)
+  requestAnimationFrame(() => {
+    customWish4.style.opacity = '1';
+    customWish4.style.transform = 'scale(1)';
+  });
+
+  // Sau khi hiệu ứng kết thúc (sau 5 giây), bắt đầu ẩn dần
+  setTimeout(() => {
+    customWish4.style.opacity = '0';
+    // Sau khi opacity về 0, ẩn phần tử
+    setTimeout(() => {
+      customWish4.style.display = 'none';
+    }, 500); // đợi opacity fade-out
+  }, 5000); // biến mất sau 5 giây animation
+}, 35000); 
+
 const wishLine = document.getElementById("wish-line");
 
 const wishes = [
@@ -218,7 +240,7 @@ const wishes = [
 ];
 
 // Thời điểm bắt đầu: sau 25s kể từ lúc chạy website (có thể thay đổi)
-const startDelay = 35000; // 35s
+const startDelay = 45000; // 35s
 const visibleDuration = 3000; // 3s hiển thị
 const fadeDuration = 1000; // 1s mờ dần
 
@@ -246,45 +268,46 @@ setTimeout(() => {
 }, startDelay);
 
 
-const delayedLine = document.getElementById("delayed-line");
+// const delayedLine = document.getElementById("delayed-line");
 
-const delayedTexts = [
-  "Tài Bùi",
-  "E viết dùm anh đoạn lời chúc sinh nhật của e gửi cho bông anh sẽ bỏ vào quà",
-  "(1 phút sau)",
-  "Ok anh",
-  "(6 tiếng sau)",
-  "e nhớ viết giúp anh lời chúc mừng sinh nhật cho Bông nhé",
-  "(11 tiếng sau)",
-  "ok anh",
-  "(3 tiếng sau)",
-  "viết đi nha. Hôm nay anh chốt quà r. Xong r ko sửa đc",
-  "Và rồi nó không gửi"
-];
+// const delayedTexts = [
+//   "Tài Bùi",
+//   "E viết dùm anh đoạn lời chúc sinh nhật của e gửi cho bông anh sẽ bỏ vào quà",
+//   "(1 phút sau)",
+//   "Ok anh",
+//   "(6 tiếng sau)",
+//   "e nhớ viết giúp anh lời chúc mừng sinh nhật cho Bông nhé",
+//   "(11 tiếng sau)",
+//   "ok anh",
+//   "(3 tiếng sau)",
+//   "viết đi nha. Hôm nay anh chốt quà r. Xong r ko sửa đc",
+//   "Và rồi nó không gửi"
+// ];
 
-const delayedStart = 65000; // bắt đầu 1 phút sau + chờ phần chúc trước chạy xong
-const visibleTime = 3000;
-const fadeTime = 1000;
+// const delayedStart = 65000; // bắt đầu 1 phút sau + chờ phần chúc trước chạy xong
+// const visibleTime = 3000;
+// const fadeTime = 1000;
 
-function showDelayedText(index) {
-  if (index >= delayedTexts.length) return;
+// function showDelayedText(index) {
+//   if (index >= delayedTexts.length) return;
 
-  delayedLine.innerText = delayedTexts[index];
-  delayedLine.style.opacity = "1";
+//   delayedLine.innerText = delayedTexts[index];
+//   delayedLine.style.opacity = "1";
 
-  setTimeout(() => {
-    delayedLine.style.opacity = "0";
-  }, visibleTime);
+//   setTimeout(() => {
+//     delayedLine.style.opacity = "0";
+//   }, visibleTime);
 
-  setTimeout(() => {
-    showDelayedText(index + 1);
-  }, visibleTime + fadeTime);
-}
+//   setTimeout(() => {
+//     showDelayedText(index + 1);
+//   }, visibleTime + fadeTime);
+// }
 
 // Khởi động hiệu ứng sau thời gian chờ
-setTimeout(() => {
-  showDelayedText(0);
-}, delayedStart);
+// setTimeout(() => {
+//   showDelayedText(0);
+// }, delayedStart);
+
 
 const anhThanhLine = document.getElementById("wish-anh-thanh-line");
 
@@ -299,7 +322,7 @@ const anhThanhTexts = [
   "Lì là anh xử đẹp tại chỗ đấy"
 ];
 
-const anhThanhStartDelay = 110000; // chờ phần trước chạy xong + 13.5s
+const anhThanhStartDelay = 80000; // chờ phần trước chạy xong + 13.5s
 const showDuration = 3000;
 // const fadeDuration = 1000;
 
