@@ -12,14 +12,28 @@ html, body {
   top: 2%;
   width: 100%;
   text-align: center;
-
-  font-size: clamp(18px, 5vw, 40px); /* ↓ giảm cỡ chữ tối đa xuống 40px */
-  white-space: nowrap;              /* Ngăn chữ tự xuống hàng */
-  
+  font-size: clamp(24px, 5.5vw, 60px); /* nhỏ hơn để tránh tràn */
   color: #ffcc00;
   z-index: 10;
   animation: pulse 2s infinite;
   text-shadow: 3px 3px 5px #ff0080, -3px -3px 5px #00ccff;
+  white-space: nowrap; /* Ngăn xuống dòng tự động */
+}
+
+#birthdayText .line-1,
+#birthdayText .line-2 {
+  display: inline;
+}
+
+/* ✨ Khi chiều rộng màn hình nhỏ hơn 420px, tách dòng */
+@media screen and (max-width: 420px) {
+  #birthdayText {
+    white-space: normal; /* Cho phép xuống dòng */
+  }
+  #birthdayText .line-1,
+  #birthdayText .line-2 {
+    display: block; /* Xuống hàng */
+  }
 }
 
 
@@ -105,7 +119,7 @@ canvas {
 #customWish3,
 #customWish4{
   position: absolute;
-  top: 18%;
+  top: 20%;
   width: 100%;
   text-align: center;
   z-index: 10;
@@ -145,7 +159,7 @@ canvas {
 
 #wish-sequence-container {
   position: absolute;
-  top: 30%;
+  top: 20%;
   width: 100%;
   text-align: center;
   z-index: 12;
@@ -169,7 +183,7 @@ canvas {
 
 #birthday-wish-container {
   position: absolute;
-  top: 18%;
+  top: 20%;
   width: 100%;
   text-align: center;
   z-index: 10;
@@ -214,7 +228,7 @@ canvas {
 
 #wish-anh-thanh-container {
   position: absolute;
-  top: 18%;
+  top: 20%;
   width: 100%;
   text-align: center;
   z-index: 10;
@@ -222,10 +236,11 @@ canvas {
 
 #wish-anh-thanh-line {
   font-family: 'Poppins', 'Roboto', 'Segoe UI', sans-serif;
-  font-size: clamp(20px, 2.5vw, 32px);
+  font-size: clamp(18px, 2.2vw, 30px); /* Giảm kích cỡ tối đa */
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px; /* Giảm để tránh tràn */
+  padding-inline: 8px; /* Chống sát mép trên thiết bị nhỏ */
 
   background: linear-gradient(270deg, #ff6ec4, #7873f5, #4ade80, #facc15);
   background-size: 800% 800%;
@@ -240,6 +255,10 @@ canvas {
   opacity: 0;
   transform: scale(0.9);
   transition: opacity 1s ease, transform 0.6s ease;
+
+  white-space: normal;         /* Cho phép xuống hàng nếu cần */
+  overflow-wrap: break-word;   /* Tự xuống dòng nếu dài */
+  word-break: break-word;      /* Hỗ trợ xuống dòng ở thiết bị nhỏ */
 }
 
 @keyframes rainbowGlow {
@@ -256,7 +275,7 @@ canvas {
 
 #wish-toan-fixed-container {
   position: absolute;
-  top: 18%;
+  top: 20%;
   width: 100%;
   text-align: center;
   z-index: 10;

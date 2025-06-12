@@ -231,7 +231,9 @@ const wishLine = document.getElementById("wish-line");
 
 const wishes = [
   "Hiền: 🎉🎂 CHÚC MỪNG SINH NHẬT BÉ BÔNG SIÊU QUẬY! 🎂🎉",
-  "Hôm nay là sinh nhật của một cô bé siêu cấp đáng yêu, siêu cấp tinh nghịch, siêu cấp ăn nhiều – chính là BÔNG ĐẠI TỶ!",
+  "Hôm nay là sinh nhật của một cô bé siêu cấp đáng yêu",
+  "Siêu cấp tinh nghịch, siêu cấp ăn nhiều",
+  "Chính là BÔNG ĐẠI TỶ!",
   "Chúc Bông tuổi mới:",
   "Lớn nhanh như thổi, ăn chóng lớn mà không cần ăn rau!",
   "Mỗi ngày đều cười khanh khách như bị chích... tickle!",
@@ -267,62 +269,21 @@ setTimeout(() => {
   showWish(0);
 }, startDelay);
 
-
-// const delayedLine = document.getElementById("delayed-line");
-
-// const delayedTexts = [
-//   "Tài Bùi",
-//   "E viết dùm anh đoạn lời chúc sinh nhật của e gửi cho bông anh sẽ bỏ vào quà",
-//   "(1 phút sau)",
-//   "Ok anh",
-//   "(6 tiếng sau)",
-//   "e nhớ viết giúp anh lời chúc mừng sinh nhật cho Bông nhé",
-//   "(11 tiếng sau)",
-//   "ok anh",
-//   "(3 tiếng sau)",
-//   "viết đi nha. Hôm nay anh chốt quà r. Xong r ko sửa đc",
-//   "Và rồi nó không gửi"
-// ];
-
-// const delayedStart = 65000; // bắt đầu 1 phút sau + chờ phần chúc trước chạy xong
-// const visibleTime = 3000;
-// const fadeTime = 1000;
-
-// function showDelayedText(index) {
-//   if (index >= delayedTexts.length) return;
-
-//   delayedLine.innerText = delayedTexts[index];
-//   delayedLine.style.opacity = "1";
-
-//   setTimeout(() => {
-//     delayedLine.style.opacity = "0";
-//   }, visibleTime);
-
-//   setTimeout(() => {
-//     showDelayedText(index + 1);
-//   }, visibleTime + fadeTime);
-// }
-
-// Khởi động hiệu ứng sau thời gian chờ
-// setTimeout(() => {
-//   showDelayedText(0);
-// }, delayedStart);
-
-
 const anhThanhLine = document.getElementById("wish-anh-thanh-line");
 
 const anhThanhTexts = [
   "Anh Thành",
   "Chúc em tuổi mới:",
-  "Học hành tấn tới, gia đình vui vẻ, tình duyên thuận lợi",
-  "Ngày càng xinh đẹp, ăn không lo mập, ngủ không lo muộn,",
+  "Học hành tấn tới, gia đình vui vẻ",
+  "Ngày càng xinh đẹp, tình duyên thuận lợi",
+  "Ăn không lo mập, ngủ không lo muộn,",
   "Xài tiền như nước… nước người khác trả!",
   "Hổng còn là em út nữa",
   "Nên là hết được mọi người chiều rồi nghen em",
   "Lì là anh xử đẹp tại chỗ đấy"
 ];
 
-const anhThanhStartDelay = 80000; // chờ phần trước chạy xong + 13.5s
+const anhThanhStartDelay = 83000; // chờ phần trước chạy xong + 13.5s
 const showDuration = 3000;
 // const fadeDuration = 1000;
 
